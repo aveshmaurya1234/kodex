@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+        body{
+            display: flex;
+            justify-content: center;
+            background:#222;
+        }
+        .container {
+            display: flex;
+            padding: 30px 15px;
+            margin-top: 50px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(248, 229, 156);
+            position: relative;
+        }
+        .item{
+            background-color: #f4f4f4;
+            border: 1px solid rgb(144, 142, 142);
+            border-bottom-right-radius:7px;
+            border-bottom-left-radius:7px;
+            width: 50px;
+            height: 250px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .part1{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            background-color:  rgb(144, 142, 142);
+        }
+        .part2{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .item2{
+            background-color: #2f2e2e;
+            background-color: cornflowerblue;
+            border: 1px solid rgb(144, 142, 142);
+            color: white;
+            border-bottom-right-radius:7px;
+            border-bottom-left-radius:7px;
+            width: 40px;
+            height: 130px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+            box-shadow: 10px 7px 13px 2px #000000;
+            cursor: pointer;
+        }
+        .active{
+            background:black ;
+            transform:scale(0.95);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="container">
+        <div class="part1">
+            <div class="item" data-key="q">q</div>
+            <div class="item" data-key="w">w</div>
+            <div class="item" data-key="e">e</div>
+            <div class="part2">
+                <div class="item2" data-key="c">c</div>
+                <div class="item2" data-key="v">v</div>
+            </div>
+        </div>
+        <div class="part1">
+            <div class="item" data-key="r" >r</div>
+            <div class="item" data-key="t" >t</div>
+            <div class="item" data-key="y" >y</div>
+            <div class="item" data-key="u" >u</div>
+            <div class="part2">
+                <div class="item2" data-key="1">1</div>
+                <div class="item2" data-key="2">2</div>
+                <div class="item2" data-key="3">3</div>
+            </div>
+        </div>
+        <div class="part1">
+            <div class="item" data-key="i" >i</div>
+            <div class="item" data-key="o" >o</div>
+            <div class="item" data-key="p" >p</div>
+            <div class="part2">
+                <div class="item2" data-key="4">4</div>
+                <div class="item2" data-key="5">5</div>
+            </div>
+        </div>
+        <div class="part1">
+            <div class="item" data-key="a" >a</div>
+            <div class="item" data-key="s" >s</div>
+            <div class="item" data-key="d" >d</div>
+            <div class="item" data-key="f" >f</div>
+            <div class="part2">
+                <div class="item2" data-key="6">6</div>
+                <div class="item2" data-key="7">7</div>
+                <div class="item2" data-key="8">8</div>
+            </div>
+        </div>
+        <div class="part1">
+            <div class="item" data-key="g" >g</div>
+            <div class="item" data-key="h" >h</div>
+            <div class="item" data-key="j" >j</div>
+            <div class="part2">
+                <div class="item2" data-key="9">9</div>
+                <div class="item2" data-key=";">;</div>
+            </div>
+        </div>
+        <div class="part1">
+            <div class="item" data-key="k" >k</div>
+            <div class="item" data-key="l" >l</div>
+            <div class="item" data-key="z" >z</div>
+            <div class="item" data-key="x" >x</div>
+            <div class="part2">
+                <div class="item2" data-key="b">b</div>
+                <div class="item2" data-key="n">n</div>
+                <div class="item2" data-key="m">m</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        let keys = document.querySelectorAll(".item, .item2");
+
+        function playSound(key) {
+            let audio = new Audio(`./song/${key}.mp3`);
+            audio.play();
+        }
+
+        function buttonEffect(button) {
+            button.classList.add("active");
+
+            setTimeout(() => {
+                button.classList.remove("active");
+            }, 200);
+        }
+
+        // Keyboard press
+        document.addEventListener("keydown", function(e) {
+            let pressedKey = e.key.toLowerCase();
+            // console.log(e.key)
+            // console.log(pressedKey)
+
+            keys.forEach(function(key){
+                if(key.dataset.key == pressedKey){
+                    playSound(pressedKey);
+                    buttonEffect(key);
+                }
+            });
+        });
+
+        // Mouse click
+        keys.forEach(function(key){
+            key.addEventListener("click", function(){
+                let clickedKey = key.dataset.key;
+                playSound(clickedKey);
+                buttonEffect(key);
+            });
+        });
+    </script>
+</body>
+</html>

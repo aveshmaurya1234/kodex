@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #555555;
+
+        }
+        main{
+            width: 100%;
+            padding: 20px;
+        }
+        .container{
+            margin: auto;
+            background: rgb(127, 126, 126);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 600px;
+            margin-bottom: 50px;
+        }
+        
+        .group{
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff9900;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline;
+        }
+
+        button:hover {
+            background-color: #e68a00;
+        }
+
+
+
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card{
+            width: 287px;
+            display: flex;
+            flex-direction: column;
+            background-color: paleturquoise;
+            border-radius: 7px;
+            overflow:hidden;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            transition:0.3s ease;
+            position:relative;
+        }
+        .card:hover{
+            transform:translateY(-10px) scale(1.03);
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+        .card img{
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+        }
+        .card-content{
+            padding: 15px;
+        }
+        .card-content h3{
+            /* line-height: 0; */
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .category{
+            color:orange;
+            font-size:14px;
+        }
+        .price{
+            color:#27ae60;
+            font-weight:bold;
+            margin:5px 0;
+        }
+
+        .quantity{
+            font-size:13px;
+            color:#555;
+            margin-top:8px;
+        }
+        .cardRemove{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 5px;
+        }
+        .cardRemove button:active{
+            scale: .95;
+        }
+        .cardRemove button:nth-child(2){
+            background-color: red;
+        }
+        .cardRemove button:nth-child(2):hover{
+            background-color: rgb(201, 2, 2);
+        }
+
+
+        @media (max-width: 641px) {
+            .container{
+                width: 100%;
+                padding: 0px;
+                background-color: red;
+            }
+            .card{
+                width: 100%;
+            }
+            .card img{
+                width: 100%;
+                height: 250px;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <main>
+        <h1 style="text-align: center;margin: 15px;">this is not store in localstorage</h1>
+        <div class="container">
+            <form >
+                <div class="group">
+                    <label>Product Name</label>
+                    <input type="text" id="name" placeholder="Enter product name" >   
+                </div>
+                <div class="group">
+                    <label>Category</label>
+                    <select id="select" >
+                        <option value="">Select Category</option>
+                        <option>Electronics</option>
+                        <option>Groceries</option>
+                        <option>Fashion</option>
+                        <option>Home</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>Price </label>
+                    <input type="number" id="price" placeholder="Enter price" >
+                </div>
+                <div class="group">
+                    <label>Quantity</label>
+                    <input type="number" id="quantity" placeholder="Enter quantity" >
+                </div>
+                <div class="group">
+                    <label>Product Image</label>
+                    <input type="file" id="image" >
+                </div>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+
+        <div class="cards">
+            <!-- <div class="card">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z2lybHxlbnwwfHwwfHx8MA%3D%3D" alt="${product.name}">
+                <div class="card-content">
+                    <h3>product name</h3>
+                    <div class="category">category</div>
+                    <div class="price">product price</div>
+                    <div class="rating">quantity</div>
+                    <div class="cardRemove">
+                        <button>Edit</button>
+                        <button>Remove</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+    <script>
+        const allCards = [
+            {
+                id:1,
+                name:"Basmati Rice",
+                select:"Grocery",
+                price:1200,
+                quantity: "3",
+                description:"Premium long grain basmati rice.",
+                image:"https://images.unsplash.com/photo-1586201375761-83865001e31c"
+            },
+            {
+                id:2,
+                name:"Cooking Oil",
+                select:"Grocery",
+                price:500,
+                quantity: "3",
+                description:"Refined sunflower cooking oil.",
+                image:"https://images.unsplash.com/photo-1654245201134-49f7e8115817?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y29va2luZyUyMG9pbHxlbnwwfHwwfHx8MA%3D%3D"
+            },
+            {
+                id:3,
+                name:"LED Bulb",
+                select:"Electric",
+                price:250,
+                quantity: "3",
+                description:"Energy saving LED bulb 12W.",
+                image:"https://images.unsplash.com/photo-1641113403042-0b6f6e5e0a35?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGVkJTIwYnVsYnxlbnwwfHwwfHx8MA%3D%3D"
+            },
+            {
+                id:4,
+                name:"Electric Iron",
+                select:"Electric",
+                price:2200, 
+                quantity: "3",   
+                description:"Fast heating steam iron.",
+                image:"https://media.istockphoto.com/id/842149116/photo/steam-iron-isolated-on-a-white-background.jpg?s=612x612&w=0&k=20&c=qHy-sfxUmqAeKOdJKxIujWc38OFhN7zgjNyuW2dRqpg="
+            },
+ 
+        ]
+        let cards = document.querySelector(".cards")
+        let form = document.querySelector("form")
+
+        function printData(){
+            let sum = ""
+            allCards.forEach((e, idx)=>{
+                sum += `<div class="card">
+                    <img src="${e.image}" alt="">
+                    <div class="card-content">
+                        <h3>${e.name}</h3>
+                        <div class="category">${e.select}</div>
+                        <div class="price">Price: ₹${e.price}</div>
+                        <div class="quantity">Quantity: ${e.quantity}</div>
+                        <div class="cardRemove">
+                            <button>Edit</button>
+                            <button id=${idx}>Remove</button>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>`
+            })
+            cards.innerHTML = sum
+
+           
+        }
+
+        printData()
+
+        form.addEventListener("submit", (e)=>{
+            e.preventDefault()
+            let newProduct = {
+                name: form.childNodes[1].childNodes[3].value,
+                select: form.childNodes[3].childNodes[3].value,          
+                price: form.childNodes[5].childNodes[3].value,
+                quantity: form.childNodes[7].childNodes[3].value,
+                image: form.childNodes[9].childNodes[3].value,
+            }
+    
+            allCards.push(newProduct)
+            form.reset()
+            printData()
+            
+            // let name = document.getElementById("name").value;
+            // console.log(name)
+            // let select = document.getElementById("select").value;
+            // let price = document.getElementById("price").value;
+            // let quantity = document.getElementById("quantity").value;
+            // let image = document.getElementById("image").value;
+            // Object me store karna
+            // let productData = {
+            //     name: name,
+            //     select: select,
+            //     price: price,
+            //     quantity: quantity,
+            //     image: image
+            // };
+            // allCards.push(productData)
+        })
+
+        // Remove Product 
+        cards.addEventListener("click",(dets)=>{
+            if(dets.target.id && dets.target.innerHTML == "Remove"){
+                allCards.splice(dets.target.id,1)
+            }
+            printData()
+        })
+        
+    </script>
+</body>
+</html>

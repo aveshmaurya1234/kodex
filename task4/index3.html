@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Music Player</title>
+
+<style>
+    body {
+        background: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D");
+        background: url("https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D");
+        background-size:cover;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        font-family: Arial, sans-serif;
+        color: white;
+        overflow: hidden;
+    }
+
+    .player {
+        /* background: #2f2f4f; */
+        padding: 5px 25px;
+        border-radius: 15px;
+        width: 720px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .player #image img{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    @keyframes animationName {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    h2 {
+        margin-bottom: 110px;
+    }
+
+    .controls button {
+        background: #ff4c60;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        margin: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .controls button:hover {
+        background: #ff2e4d;
+    }
+
+
+    #progress-container {
+        margin: 15px 0;
+        width: 100%;
+        position: relative;
+    }
+ 
+    #progress {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .time {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="player">
+        <div id="image">
+            <img src="https://plus.unsplash.com/premium_photo-1681400786117-df414eb06089?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bXVzaWMlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww" alt="">
+        </div>
+        <h2 id="title">Song 1</h2>
+        <audio id="audio"></audio>
+
+        <div class="controls">
+            <button onclick="prevSong()">⏮</button>
+            <button id="play" onclick="playPause()">▶</button>
+            <button onclick="nextSong()">⏭</button>
+        </div>
+
+        
+        <div id="progress-container">
+            <input type="range" id="progress" value="0">
+            <div class="time">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+    </div>
+
+<script>
+const songs = [
+    {
+        title: "Saat Samundar Paar - Edm Remix DJ Annu 1...",
+        src: "./song/saat1.mp3",
+        img: "https://images.unsplash.com/photo-1614149162883-504ce4d13909?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bXVzaWMlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww"
+
+    },
+    {
+        title: "Saat Samundar Paar - Remix...",
+        src: "./song/saat2.mp3",
+        img: "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bXVzaWMlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww"
+    },
+    {
+        title: "Saat Samundar Paar Mp3 Filter Song Download Dj Rachit(DjMusicVibration.Co.In)...",
+        src: "./song/saat3.mp3",
+        img: "https://plus.unsplash.com/premium_photo-1681400786117-df414eb06089?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bXVzaWMlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww"
+    },
+];
+
+let currentSong = 0;
+const audio = document.getElementById("audio");
+const title = document.getElementById("title");
+const progress = document.getElementById("progress");
+const play = document.getElementById("play");
+const currentTimeEl = document.getElementById("current-time");
+const durationEl = document.getElementById("duration");
+const img = document.querySelector("img")
+
+
+
+function loadSong(index) {
+    audio.src = songs[index].src;
+    title.textContent = songs[index].title;
+    img.src = songs[index].img;
+}
+
+function nextSong() {
+    currentSong = (currentSong + 1) % songs.length;
+    loadSong(currentSong);
+    audio.play();
+    play.textContent = "⏸"
+    img.style.animation = "animationName 3s infinite linear "
+}
+
+function prevSong() {
+    currentSong = (currentSong - 1 + songs.length) % songs.length;
+    loadSong(currentSong);
+    audio.play();
+    play.textContent = "⏸"
+    img.style.animation = "animationName 3s infinite linear "
+}
+
+function playPause() {
+    if (audio.paused) {
+        audio.play();
+        play.textContent = "⏸"
+        img.style.animation = "animationName 3s infinite linear "
+    } else {
+        audio.pause();
+        play.textContent = "▶"
+        img.style.animation = ""
+    }
+}
+
+audio.addEventListener("timeupdate", () => {
+    progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+});
+
+progress.addEventListener("input", () => {
+    audio.currentTime = (progress.value / 100) * audio.duration;
+});
+
+audio.addEventListener("loadedmetadata", () => {
+  durationEl.textContent = formatTime(audio.duration);
+});
+
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+  return `${minutes}:${seconds}`;
+}
+
+loadSong(currentSong);
+</script>
+
+</body>
+</html>

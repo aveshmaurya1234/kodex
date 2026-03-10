@@ -1,0 +1,7 @@
+.income h3 {
+  color: var(--text-primary);
+}
+
+.expense h3 {
+  color: var(--text-secondary);
+}

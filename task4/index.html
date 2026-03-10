@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            cursor: none;
+        } */
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transition: all linear 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // document.addEventListener("keypress",(e)=>{
+        //     // console.log(e.keyCode)
+        //     // console.log(e.key)
+        //     // console.log(e.code)
+        // })
+
+        
+        let box = document.querySelector("#box")
+        document.addEventListener("mousemove", (e)=>{
+            box.style.left = e.x+"px"
+            box.style.top = e.y+"px"
+        })
+    </script>
+</body>
+</html>

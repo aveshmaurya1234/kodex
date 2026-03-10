@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>javaScript</h1>
+
+    <script>
+        
+        // // 1.  Write a function that prints "Hello World".
+        // function helloWorld() {
+        //     console.log("Hello, World!");
+        // }
+        // helloWorld();
+
+
+        // // 2.  Write a function that adds two numbers and returns the result.
+        // function addNumbers(num1, num2) {
+        //     return num1 + num2;
+        // }
+        // console.log(addNumbers(5, 10));
+
+
+        // // 3.  Write a function that takes a name as a parameter and prints it.
+        // function printName(name) {
+        //     console.log(name);
+        // }
+        // printName("Alice");
+
+
+        // // 4. Create a function that returns the square of a number.
+        // function square(num) {
+        //     return num * num;
+        // }
+        // console.log(square(6));
+
+
+        // // 5.  Write a function that checks if a number is even.
+        // function isEven(num) {
+        //     if (num % 2 === 0) {
+        //         return "even";
+        //     } else {
+        //         return "odd";
+        //     }
+        // }
+        // console.log(isEven(4)); 
+        // console.log(isEven(7)); 
+
+
+        // // 6.  Create a function that returns the last character of a string.
+        // function lastCharacter(str) {
+        //     return str.charAt(str.length - 1);
+        // }
+        // console.log(lastCharacter("Hello"));
+
+
+        // // 7.  Write a function that returns the first element of an array.
+        // let arr = [1, 2, 3, 4, 5];
+        // function firstElement(arr) {
+        //     return arr[0];
+        // }   
+        // console.log(firstElement(arr));
+
+
+        // // 8.  Write a function that returns the last element of an array.
+        // let arr = [1, 2, 3, 4, 5];
+        // function lastElement(arr) {
+        //     return arr[arr.length - 1];
+        // }
+        // console.log(lastElement(arr));
+
+
+        // // 9.  Write a function that prints all elements of an array.
+        // function printArray(arr) {
+        //     for (let i = 0; i < arr.length; i++) {
+        //         console.log(arr[i]);
+        //     }
+        // }
+        // let arr = [1, 2, 3, 4, 5];
+        // printArray(arr);
+
+
+        // // 10. Write a function that returns the length of an array.
+        // let arr = [1, 2, 3, 4, 5];
+        // function getArrayLength(arr) {
+        //     return arr.length;
+        // }
+        // console.log(getArrayLength(arr));
+
+
+        // // 11. Write a function declaration that multiplies two numbers.
+        // function multiply(num1, num2) {
+        //     return num1 * num2;
+        // }
+        // console.log(multiply(3,7))
+
+
+        // // 12. Write a function expression that subtracts two numbers.
+        // const subtract = function(num1, num2) {
+        //     return num1 - num2;
+        // }
+        // console.log(subtract(10, 4));
+
+
+        // // 13. Write an arrow function that converts a string to uppercase.
+        // const toUpperCase = (str) => {
+        //     return str.toUpperCase();
+        // }
+        // console.log(toUpperCase("hello world"));
+
+
+        // // 14. Write an arrow function that calculates a number's cube.
+        // const cube = (num) => {
+        //     return num * num * num;
+        // }
+        // console.log(cube(3));
+
+
+        // // 15. Create a function that joins two strings and returns the result.
+        // function joinStrings(str1, str2) {
+        //     return str1 + str2;
+        // }
+        // console.log(joinStrings("Hello, ", "World!"));
+
+
+        // 16. Write a function that takes two parameters and returns which one is bigger.
+        // function bigger(num1, num2) {
+        //     if (num1 > num2) {
+        //         return num1;
+        //     } else if (num2 > num1) {
+        //         return num2;
+        //     } else {
+        //         return "Both numbers are equal.";
+        //     }
+        // }
+        // console.log(bigger(5, 10));
+
+
+        // // 17. Write a function that takes three parameters and returns the smallest number.
+        // function bigger(num1, num2, num3) {
+        //     if (num1 < num2 && num1 < num3) {
+        //         return num1;
+        //     } else if (num2 < num1 && num2 < num3) {
+        //         return num2;
+        //     } else if (num3 < num1 && num3 < num2) {
+        //         return num3;
+        //     } else {
+        //         return "these numbers are equal.";
+        //     }
+        // }
+        // console.log(bigger(5, 1, 7));
+
+
+        // // 18. Write a function that prints any message five times (using a parameter).
+        // function printMessage(message) {
+        //     for (let i = 0; i < 5; i++) {
+        //         console.log(message);
+        //     }
+        // }
+        // printMessage("Hello, World!");
+
+
+        // // 19. Write a function that takes an array and returns only even numbers.
+        // function evenNumbers(arr) {
+        //     let evenArr = [];
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] % 2 === 0) {
+        //             evenArr.push(arr[i]);
+        //         }
+        //     }
+        //     return evenArr;
+        // }
+        // let arr = [1, 2, 3, 4, 5, 6];
+        // console.log(evenNumbers(arr));
+
+
+        // // 20. Write a function that takes an array and returns only odd numbers.
+        // function oddNumbers(arr) {
+        //     let oddArr = [];
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] % 2 !== 0) {
+        //             oddArr.push(arr[i]);
+        //         }
+        //     }
+        //     return oddArr;
+        // }
+        // let arr = [1, 2, 3, 4, 5, 6];
+        // console.log(oddNumbers(arr));
+
+
+        // 21. Write a function that removes the first element of an array (using shift).
+
+            // function removeFirstElement(arr) {
+            //     arr.shift();
+            //     return arr;
+            // }
+            // let arr = [1, 2, 3, 4, 5, 6];
+            // console.log(removeFirstElement(arr));
+
+
+        // 22. Write a function that adds a value to the start of an array (using unshift).
+        // function addToStart(arr, value) {
+        //     arr.unshift(value);
+        //     return arr;
+        // }
+        // let arr = [1, 2, 3, 4, 5, 6];
+        // console.log(addToStart(arr, 0));
+
+
+        // 23. Write a function that removes the last element of an array (using pop).
+        // function removeLastElement(arr) {
+        //     arr.pop();
+        //     return arr;
+        // }
+        // let arr = [1, 2, 3, 4, 5, 6];
+        // console.log(removeLastElement(arr));
+
+
+        // 24. Write a function that adds a value to the end of an array (using push).
+        // function addToEnd(arr, value) {
+        //     arr.push(value);
+        //     return arr;
+        // }
+        // let arr = [1, 2, 3, 4, 5, 6];
+        // console.log(addToEnd(arr, 7));
+
+
+        // // // 25. Write a function that uses splice to remove 2 items from index 1.
+        // function removeItems(arr) {
+        //     arr.splice(1, 2);
+        //     return arr;
+        // }
+        // let arr2 = [1, 2, 3, 4, 5, 6];
+        // console.log(removeItems(arr2));
+
+
+        // 26. Write a function that checks if a string contains the letter "a".
+        // function containsA(str) {
+        //     if (str.includes("a") || str.includes("A")) {
+        //         return "The string contains the letter 'a'.";
+        //     } else {
+        //         return "The string does not contain the letter 'a'.";
+        //     }
+        // }
+        // console.log(containsA("Hello, World!"));
+        // console.log(containsA("JavaScript is great!"));
+
+
+        // 27. Write a function that counts vowels in a string.
+        // function countVowels(str) {
+        //     let count = 0;
+        //     const vowels = "aeiouAEIOU";
+        //     for (let i = 0; i < str.length; i++) {
+        //         if (vowels.includes(str[i])) {
+        //             count++;
+        //         }
+        //     }
+        //     return count;
+        // }
+        // console.log(countVowels("Hello, World!"));
+        // console.log(countVowels("JavaScript is great!"));
+
+
+        // // 28. Write a function that reverses a string.
+        // function reverseString(str) {
+        //     let result = "";
+        //     for (let i = str.length - 1; i >= 0; i--) {
+        //         result += str[i];
+        //     }
+        //     return result;
+        // }
+        // console.log(reverseString("Hello, World!"));
+
+        // function reverseString(num) {
+        //     let result = num.split("").reverse().join("");
+        //     return result;
+        // }
+        // console.log(reverseString("hello"));
+
+
+        // 29. Write a function that checks if a string is empty.
+        // function isEmpty(str) {
+        //     // if (str.length === 0) {
+        //     //     return "The string is empty.";
+        //     // } else {
+        //     //     return "The string is not empty.";
+        //     // }
+
+        //     if (str === "") {
+        //         console.log("String is empty");
+        //     } else {
+        //         console.log("String is not empty");
+        //     }
+        // }
+        // isEmpty("");
+
+
+
+        // // 30. Write a function that returns how many spaces are in a string.
+        // function countSpaces(str) {
+        //     let count = 0;
+        //     for (let i = 0; i < str.length; i++) {
+        //         if (str[i] === " ") {
+        //             count++;
+        //         }        
+        //     }
+        //     return count;    
+        // }
+        // console.log(countSpaces("Hello,   World!"));
+
+
+
+        // // 31. Write a function that returns the sum of all numbers in an array.
+        // function sumAllNumber(arr){
+        //     let sum = arr.reduce((total, value) => total + value, 0);
+        //     return sum;
+        // }
+        // let arr = [1, 2, 3, 4, 5, 6];
+        // console.log(sumAllNumber(arr));
+
+        
+        // // 32. Write a function that returns the biggest number from an array.
+        // function biggestNumber(arr){
+        //     let max = arr[0]
+        //     for(let i = 0; i < arr.length; i++){
+        //         if(arr[i]>max){
+        //             max = arr[i]
+        //         }
+        //     }
+        //     return(max)
+        // }
+        // let arr = [11, 2, 13, 4, 15, 6];
+        // console.log(biggestNumber(arr));
+
+
+        // // 33. Write a function that returns the smallest number from an array.
+        // function smalestNumber(arr){
+        //     let max = arr[0]
+        //     for(let i = 0; i < arr.length; i++){
+        //         if(arr[i]<max){
+        //             max = arr[i]
+        //         }
+        //     }
+        //     return(max)
+        // }
+        // let arr = [11, 22, 13, 4, 15, 6];
+        // console.log(smalestNumber(arr));
+
+
+        // // 34. Write a function that doubles each number in an array.
+        // function doubleNumbers(arr) {
+        //     return arr.map(num => num * 2);
+        // }
+        // let arr = [11, 22, 13, 4, 15, 6];
+        // console.log(doubleNumbers(arr));
+
+
+        // // 35. Write a function that removes duplicate items from an array.
+        // function removesDuplicate(arr){
+        //     let newArr = []
+        //     for(let i = 0; i < arr.length; i++){
+        //         if(newArr.includes(arr[i]) == false){
+        //             newArr.push(arr[i])
+        //         }
+        //     }
+        //     return(newArr)
+        // }
+
+        // let arr = [11, 22, 13, 13, 4, 4,4, 15, 6];
+        // console.log(removesDuplicate(arr));
+              
+
+        // // 36. Write a function that takes an array and returns only positive numbers.
+        // function positiveNumbers(arr){
+        //     return arr.filter(num => num > 0);
+        // }
+        // let arr = [11, 22, -13, -4, 15, 6];
+        // console.log(positiveNumbers(arr));
+
+
+        // 37. Write a function that checks if a number is divisible by 10.
+        // function divisible(arr){
+        //     let newArr = []
+        //     for(let i = 0; i < arr.length; i++){
+        //         if(arr[i]%10 == 0){
+        //             newArr.push(arr[i])
+        //         }
+        //     }
+        //     return(newArr)
+        // }
+
+        // let arr = [11, 20, 13, 10, 4, 40, 15, 6];
+        // console.log(divisible(arr));
+  
+
+        // 38. Write a function that prints the index of each item in an array.
+        // function indexOfEachItem(arr){
+        //     for(let i = 0; i < arr.length; i++){
+        //         console.log(`${i} = ${arr[i]}`)
+        //     }
+        // }
+
+        // let arr = [11, 20, 13, 10, 4, 40, 15, 6];
+        // indexOfEachItem(arr);
+
+        // 39. Write a function that returns the middle element of an array.
+        // function getMiddle(arr) {
+        //     let total = arr.length;
+        //     let mid = Math.floor(total / 2);
+        //     return arr[mid];
+        // }
+
+        // let arr = [11, 20, 13, 10, 40, 15, 6];
+        // console.log(getMiddle(arr));  // 40
+
+        
+        // 40. Write a function that removes 1 element from the middle of an array using splice.
+
+    </script>
+</body>
+</html>
